@@ -17,8 +17,9 @@ class CreateMatchesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('lig');
-            $table->string('time');
-            $table->string('dateRaw');
+            $table->datetime('date');
+            $table->datetime('time');
+            $table->datetime('dateRaw');
             $table->string('order');
             $table->string('yer');
             $table->string('takimA');
@@ -26,6 +27,7 @@ class CreateMatchesTable extends Migration
             $table->string('imgA');
             $table->string('imgB');
             $table->string('skor');
+            $table->dropColumn('sets');
             $table->timestamps();
         });
     }

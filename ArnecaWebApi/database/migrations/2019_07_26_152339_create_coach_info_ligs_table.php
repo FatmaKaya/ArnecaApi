@@ -15,6 +15,7 @@ class CreateCoachInfoLigsTable extends Migration
     {
         Schema::create('coach_info_ligs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->dropColumn('notifications');
             $table->string('lastMatch');
             $table->timestamps();
         });
