@@ -13,8 +13,10 @@ class CreateCoachInfoLigsTable extends Migration
      */
     public function up()
     {
-        Schema::create('coach__info__ligs', function (Blueprint $table) {
+        Schema::create('coach_info_ligs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('lastMatch');
+
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateCoachInfoLigsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coach__info__ligs');
+        Schema::dropIfExists('coach_info_ligs');
     }
 }
