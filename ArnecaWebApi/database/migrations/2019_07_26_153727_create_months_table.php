@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCoachInfoLigsTable extends Migration
+class CreateMonthsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateCoachInfoLigsTable extends Migration
      */
     public function up()
     {
-        Schema::create('coach_info_ligs', function (Blueprint $table) {
+        Schema::create('months', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('lastMatch');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateCoachInfoLigsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coach_info_ligs');
+        Schema::dropIfExists('months');
     }
 }
