@@ -18,10 +18,10 @@ class CreateMatchesTable extends Migration
             $table->bigInteger('coach_info_ligs_id');  
             $table->string('title');
             $table->string('lig');
-            $table->datetime('date');
-            $table->datetime('time');
-            $table->datetime('dateRaw');
-            $table->string('order');
+            $table->string('date');
+            $table->string('time');
+            $table->string('dateRaw');
+            $table->decimal('order',13,0);
             $table->string('yer');
             $table->bigInteger('location_id');  
             $table->string('takimA');
