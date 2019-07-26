@@ -16,6 +16,7 @@ class CreateMonthsTable extends Migration
         Schema::create('months', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->bigInteger('workout_plan_id');  
             $table->timestamps();
         });
     }

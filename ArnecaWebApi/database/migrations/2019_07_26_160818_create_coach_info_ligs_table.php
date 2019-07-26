@@ -16,8 +16,7 @@ class CreateCoachInfoLigsTable extends Migration
         Schema::create('coach_info_ligs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('lastMatch');        
-            $table->bigInteger('workout_plan_id');     
-            $table->bigInteger('matches_id');    
+            $table->bigInteger('workout_plan_id');  
             $table->timestamps();
         });
     }

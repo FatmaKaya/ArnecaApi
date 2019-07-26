@@ -15,6 +15,7 @@ class CreatePlansTable extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('day_id');  
             $table->string('day_month');
             $table->string('hours');
             $table->string('name');
