@@ -15,6 +15,7 @@ class CreateWorkoutPlansTable extends Migration
     {
         Schema::create('workout_plans', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
             $table->timestamps();
         });
     }
