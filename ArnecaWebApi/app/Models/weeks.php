@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class weeks extends Model
 {
+    public $timestamps = false;
+    
     public function getMonth(){
         return $this->hasOne('App\Models\month','id','month_id');
     }

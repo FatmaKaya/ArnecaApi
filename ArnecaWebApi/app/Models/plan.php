@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class plan extends Model
 {
+    public $timestamps = false;
+    
     public function getDay(){
         return $this->hasOne('App\Models\days','id','day_id');
     }

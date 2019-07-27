@@ -13,6 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+Route::apiResource('locations','Api\LocationsController');
+Route::apiResource('matches','Api\MatchesController');
+
+Route::apiResource('plan','Api\PlanController');
+Route::apiResource('days','Api\DaysController');
+Route::apiResource('weeks','Api\WeeksController');
+Route::apiResource('month','Api\MonthController');
+Route::apiResource('workout_plan','Api\WorkoutPlansController');
+
+Route::apiResource('coachinfoligs','Api\CoachInfoLigsController');

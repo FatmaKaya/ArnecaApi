@@ -19,10 +19,12 @@ class DatabaseSeeder extends Seeder
         $this->call(MonthsSeeder::class);
         $this->call(WorkoutPlansSeeder::class);
 
+        $this->call(CoachInfoLigSeeder::class);
+        
         $this->call(LocationSeeder::class);
         $this->call(MatchesSeeder::class);
         
-        $this->call(CoachInfoLigSeeder::class);
+        
         
 
     

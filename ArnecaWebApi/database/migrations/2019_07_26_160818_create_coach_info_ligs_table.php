@@ -17,7 +17,7 @@ class CreateCoachInfoLigsTable extends Migration
             $table->bigIncrements('id');
             $table->string('lastMatch');        
             $table->bigInteger('workout_plan_id');  
-            $table->timestamps();
+            $table->timestamps=false;
         });
     }
 

@@ -20,7 +20,7 @@ class CreatePlansTable extends Migration
             $table->string('hours');
             $table->string('name');
             $table->string('location');
-            $table->timestamps();
+            $table->timestamps=false;
         });
     }
 
