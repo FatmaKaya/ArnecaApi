@@ -20,6 +20,9 @@ class WeeksSeeder extends Seeder
             'month_id'=>'1',
             'name'=>'2.hafta'
         ]);
-        
+        weeks::create([
+            'month_id'=>'2',
+            'name'=>'1.hafta'
+        ]);
     }
 }

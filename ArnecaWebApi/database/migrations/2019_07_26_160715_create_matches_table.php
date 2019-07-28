@@ -29,7 +29,8 @@ class CreateMatchesTable extends Migration
             $table->string('imgA');
             $table->string('imgB');
             $table->string('skor');
-            $table->timestamps();
+            $table->bigInteger('sets_id');  
+            $table->timestamps=false;
         });
     }
 

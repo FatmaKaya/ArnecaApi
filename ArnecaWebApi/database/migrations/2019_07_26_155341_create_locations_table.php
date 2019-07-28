@@ -17,7 +17,7 @@ class CreateLocationsTable extends Migration
             $table->bigIncrements('id');
             $table->decimal('lat', 10, 7);
             $table->decimal('lon', 10, 7);
-            $table->timestamps();
+            $table->timestamps=false;
         });
     }
 

@@ -24,5 +24,6 @@ class DaysSeeder extends Seeder
             'week_id'=>'1',
             'day_month'=>'3 Ocak'
         ]);
+        
     }
 }
