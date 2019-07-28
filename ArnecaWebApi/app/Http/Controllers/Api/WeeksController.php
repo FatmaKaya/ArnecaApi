@@ -161,6 +161,21 @@ class WeeksController extends Controller
      */
     public function destroy(weeks $weeks)
     {
-        //
+        $weeks->delete();
+        $result=[
+            "location"=>$weeks
+        ];
+        
+        $result_message=[
+            "method"=>"Delete",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result"=>$result,
+            "result_message"=> $result_message
+        ]);
     }
 }

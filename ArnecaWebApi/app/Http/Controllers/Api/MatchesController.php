@@ -126,6 +126,21 @@ class MatchesController extends Controller
      */
     public function destroy(matches $matches)
     {
-        //
+        $matches->delete();
+        $result=[
+            "matches"=>$matches
+        ];
+        
+        $result_message=[
+            "method"=>"Delete",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result"=>$result,
+            "result_message"=> $result_message
+        ]);
     }
 }

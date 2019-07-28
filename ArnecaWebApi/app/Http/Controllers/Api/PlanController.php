@@ -108,6 +108,21 @@ class PlanController extends Controller
      */
     public function destroy(plan $plan)
     {
-        //
+        $plan->delete();
+        $result=[
+            "plan"=>$plan
+        ];
+        
+        $result_message=[
+            "method"=>"Delete",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result"=>$result,
+            "result_message"=> $result_message
+        ]);
     }
 }

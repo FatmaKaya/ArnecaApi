@@ -135,6 +135,21 @@ class DaysController extends Controller
      */
     public function destroy(days $days)
     {
-        //
+        $days->delete();
+        $result=[
+            "days"=>$days
+        ];
+        
+        $result_message=[
+            "method"=>"Delete",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result"=>$result,
+            "result_message"=> $result_message
+        ]);
     }
 }

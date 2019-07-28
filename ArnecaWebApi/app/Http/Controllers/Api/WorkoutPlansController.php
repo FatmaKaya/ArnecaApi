@@ -211,6 +211,21 @@ class WorkoutPlansController extends Controller
      */
     public function destroy(workout_plan $workout_plan)
     {
-        //
+        $workout_plan->delete();
+        $result=[
+            "location"=>$workout_plan
+        ];
+        
+        $result_message=[
+            "method"=>"Delete",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result"=>$result,
+            "result_message"=> $result_message
+        ]);
     }
 }

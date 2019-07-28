@@ -185,6 +185,21 @@ class MonthController extends Controller
      */
     public function destroy(month $month)
     {
-        //
+        $month->delete();
+        $result=[
+            "location"=>$month
+        ];
+        
+        $result_message=[
+            "method"=>"Delete",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result"=>$result,
+            "result_message"=> $result_message
+        ]);
     }
 }

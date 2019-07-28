@@ -20,6 +20,7 @@ class LocationsController extends Controller
         ];
 
         $result_message=[
+            "method"=>"Get",
             "title"=>"Bilgi",
             "message"=> "Başarılı",
             "type"=>"success"
@@ -51,10 +52,11 @@ class LocationsController extends Controller
     public function show(location $location)
     {
         $result=[
-            "location"=>location::find($location)
+            "location"=>$location
         ];
 
         $result_message=[
+            "method"=>"Get",
             "title"=>"Bilgi",
             "message"=> "Başarılı",
             "type"=>"success"
@@ -86,6 +88,21 @@ class LocationsController extends Controller
      */
     public function destroy(location $location)
     {
-        //
+        $location->delete();
+        $result=[
+            "location"=>$location
+        ];
+        
+        $result_message=[
+            "method"=>"Delete",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result"=>$result,
+            "result_message"=> $result_message
+        ]);
     }
 }
