@@ -71,7 +71,35 @@ class MatchesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        matches::create([
+           
+            'coach_info_ligs_id'=>$request->coach_info_ligs_id,
+            'title'=>$request->title,
+            'lig'=>$request->lig,
+            'date'=>$request->date,
+            'time'=>$request->time,
+            'dateRaw'=>$request->dateRaw,
+            'order'=>$request->order,
+            'yer'=>$request->yer,
+            'location_id'=>$request->location_id,
+            'takimA'=>$request->takimA,
+            'takimB'=>$request->takimB,
+            'imgA'=>$request->imgA,
+            'imgB'=>$request->imgB,
+            'skor'=>$request->skor,
+            'sets_id'=>$request->sets_id,
+        ]);
+
+        $result_message=[
+            "method"=>"post",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result_message"=> $result_message
+        ]);
     }
 
     /**

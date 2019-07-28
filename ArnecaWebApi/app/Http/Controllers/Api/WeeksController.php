@@ -82,7 +82,22 @@ class WeeksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        weeks::create([
+           
+            'month_id'=>$request->month_id,
+            'name'=>$request->name
+        ]);
+
+        $result_message=[
+            "method"=>"post",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result_message"=> $result_message
+        ]);
     }
 
     /**

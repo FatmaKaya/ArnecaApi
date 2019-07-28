@@ -8,6 +8,8 @@ class workout_plan extends Model
 {
     public $timestamps = false;
     
+    protected $fillable = ['name'];
+    
     public function getCoach_info_ligs(){
         return $this->hasOne('App\Models\coach_info_ligs','workout_plan_id','id');
     }

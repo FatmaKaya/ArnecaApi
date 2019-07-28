@@ -105,7 +105,21 @@ class WorkoutPlansController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        workout_plan::create([
+           
+            'name'=>$request->name
+        ]);
+
+        $result_message=[
+            "method"=>"post",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result_message"=> $result_message
+        ]);
     }
 
     /**

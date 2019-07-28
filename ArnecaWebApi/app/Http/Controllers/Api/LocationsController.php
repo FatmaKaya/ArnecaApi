@@ -40,7 +40,22 @@ class LocationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        location::create([
+           
+            'lat'=>$request->lat,
+            'lon'=>$request->lon
+        ]);
+
+        $result_message=[
+            "method"=>"post",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result_message"=> $result_message
+        ]);
     }
 
     /**

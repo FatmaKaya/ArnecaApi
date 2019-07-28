@@ -67,7 +67,22 @@ class DaysController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        days::create([
+           
+            'week_id'=>$request->week_id,
+            'day_month'=>$request->day_month
+        ]);
+
+        $result_message=[
+            "method"=>"post",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result_message"=> $result_message
+        ]);
     }
 
     /**

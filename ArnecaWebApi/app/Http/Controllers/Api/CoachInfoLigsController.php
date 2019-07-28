@@ -163,7 +163,22 @@ class CoachInfoLigsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        coach_info_ligs::create([
+           
+            'lastMatch'=>$request->lastMatch,
+            'workout_plan_id'=>$request->workout_plan_id
+        ]);
+
+        $result_message=[
+            "method"=>"post",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result_message"=> $result_message
+        ]);
     }
 
     /**

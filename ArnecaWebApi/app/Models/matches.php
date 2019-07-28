@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class matches extends Model
 {
     public $timestamps = false;
+
+    protected $fillable = ['coach_info_ligs_id','title','lig','date','time','dateRaw','order',
+                            'yer','location_id','takimA','takimB','imgA','imgB','skor','sets_id'];
     
     public function getCoache_info_ligs(){
         return $this->hasOne('App\Models\coach_info_ligs','id','coache_info_ligs_id');

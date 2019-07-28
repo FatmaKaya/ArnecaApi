@@ -56,7 +56,24 @@ class SetsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        sets::create([
+           
+            'set1'=>$request->set1,
+            'set2'=>$request->set2,
+            'set3'=>$request->set3,
+            'set4'=>$request->set4,
+        ]);
+
+        $result_message=[
+            "method"=>"post",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result_message"=> $result_message
+        ]);
     }
 
     /**

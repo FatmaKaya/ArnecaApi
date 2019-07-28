@@ -60,7 +60,28 @@ class NotificationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        notifications::create([
+           
+            'coache_info_ligs_id'=>$request->coache_info_ligs_id,
+            'bildirim1'=>$request->bildirim1,
+            'bildirim2'=>$request->bildirim2,
+            'bildirim3'=>$request->bildirim3,
+            'bildirim4'=>$request->bildirim4,
+            'bildirim5'=>$request->bildirim5,
+            'bildirim6'=>$request->bildirim6,
+            'bildirim7'=>$request->bildirim7
+        ]);
+
+        $result_message=[
+            "method"=>"post",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result_message"=> $result_message
+        ]);
     }
 
     /**

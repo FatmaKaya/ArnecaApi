@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class weeks extends Model
 {
     public $timestamps = false;
+
+    protected $fillable = ['month_id','name'];
     
     public function getMonth(){
         return $this->hasOne('App\Models\month','id','month_id');

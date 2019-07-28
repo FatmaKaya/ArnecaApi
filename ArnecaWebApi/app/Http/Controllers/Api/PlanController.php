@@ -53,7 +53,25 @@ class PlanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        plan::create([
+           
+            'day_id'=>$request->day_id,
+            'day_month'=>$request->day_month,
+            'hours'=>$request->hours,
+            'name'=>$request->name,
+            'location'=>$request->location
+        ]);
+
+        $result_message=[
+            "method"=>"post",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result_message"=> $result_message
+        ]);
     }
 
     /**
