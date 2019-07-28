@@ -69,7 +69,8 @@ class NotificationsController extends Controller
             'bildirim4'=>$request->bildirim4,
             'bildirim5'=>$request->bildirim5,
             'bildirim6'=>$request->bildirim6,
-            'bildirim7'=>$request->bildirim7
+            'bildirim7'=>$request->bildirim7,
+            'bildirim8'=>$request->bildirim8
         ]);
 
         $result_message=[
