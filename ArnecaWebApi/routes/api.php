@@ -23,4 +23,6 @@ Route::apiResource('weeks','Api\WeeksController');
 Route::apiResource('month','Api\MonthController');
 Route::apiResource('workout_plan','Api\WorkoutPlansController');
 
-Route::apiResource('coachinfoligs','Api\CoachInfoLigsController');
+Route::apiResource('coach_info_ligs','Api\CoachInfoLigsController');
+
+//Route::apiResource('coachinfoligs','Api\CoachInfoLigsController');
