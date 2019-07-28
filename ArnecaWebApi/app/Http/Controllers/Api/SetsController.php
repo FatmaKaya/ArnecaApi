@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\location;
+use App\Models\sets;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class LocationsController extends Controller
+class SetsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +14,28 @@ class LocationsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
+        $sets=sets::all();
+
+        $jsonsets = array();
+
+        foreach($sets as $set){
+            $rowsets = [
+                $set->set1,
+                $set->set2,
+                $set->set3,
+                $set->set4,
+            ]  ;            
+            $jsonsets[] = $rowsets;    
+        }
+ 
+
         $result=[
-            "locations"=>location::all()
+            "sets"=>$jsonsets
         ];
 
         $result_message=[
+            "method"=>"Get",
             "method"=>"Get",
             "title"=>"Bilgi",
             "message"=> "Başarılı",
@@ -46,13 +62,18 @@ class LocationsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\location  $location
+     * @param  \App\Models\sets  $sets
      * @return \Illuminate\Http\Response
      */
-    public function show(location $location)
-    {
+    public function show(sets $set)
+    {  
         $result=[
-            "location"=>$location
+            "sets"=> [
+                $set->set1,
+                $set->set2,
+                $set->set3,
+                $set->set4
+            ] 
         ];
 
         $result_message=[
@@ -65,17 +86,17 @@ class LocationsController extends Controller
         return response()->json([
             "result"=>$result,
             "result_message"=> $result_message
-        ]);
+        ]);   
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\location  $location
+     * @param  \App\Models\sets  $sets
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, location $location)
+    public function update(Request $request, sets $sets)
     {
         //
     }
@@ -83,14 +104,14 @@ class LocationsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\location  $location
+     * @param  \App\Models\sets  $sets
      * @return \Illuminate\Http\Response
      */
-    public function destroy(location $location)
+    public function destroy(sets $set)
     {
-        $location->delete();
+        $set->delete();
         $result=[
-            "location"=>$location->id
+            "sets"=>$set->id
         ];
         
         $result_message=[

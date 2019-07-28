@@ -72,6 +72,7 @@ class MonthController extends Controller
         ];
 
         $result_message=[
+            "method"=>"Get",
             "title"=>"Bilgi",
             "message"=> "Başarılı",
             "type"=>"success"
@@ -153,6 +154,7 @@ class MonthController extends Controller
         ];
 
         $result_message=[
+            "method"=>"Get",
             "title"=>"Bilgi",
             "message"=> "Başarılı",
             "type"=>"success"
@@ -187,7 +189,7 @@ class MonthController extends Controller
     {
         $month->delete();
         $result=[
-            "location"=>$month
+            "month"=>$month->id
         ];
         
         $result_message=[

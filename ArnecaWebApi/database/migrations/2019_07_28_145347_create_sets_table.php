@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCoachInfoLigsTable extends Migration
+class CreateSetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateCoachInfoLigsTable extends Migration
      */
     public function up()
     {
-        Schema::create('coach_info_ligs', function (Blueprint $table) {
+        Schema::create('sets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('lastMatch');        
-            $table->bigInteger('workout_plan_id');
+            $table->string('set1');
+            $table->string('set2');
+            $table->string('set3');
+            $table->string('set4');
             $table->timestamps=false;
         });
     }
@@ -28,6 +30,6 @@ class CreateCoachInfoLigsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coach_info_ligs');
+        Schema::dropIfExists('sets');
     }
 }

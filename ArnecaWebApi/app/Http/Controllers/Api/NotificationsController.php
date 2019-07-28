@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\location;
+use App\Models\notifications;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class LocationsController extends Controller
+class NotificationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,29 @@ class LocationsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
+        $notifications=notifications::all();
+
+        $jsonnotifications = array();
+
+        foreach($notifications as $notification){
+
+            $rownotifications = [
+                $notification->bildirim1,
+                $notification->bildirim2,
+                $notification->bildirim3,
+                $notification->bildirim4,
+                $notification->bildirim5,
+                $notification->bildirim6,
+                $notification->bildirim7,
+                $notification->bildirim8,
+            ]  ;            
+            $jsonnotifications[] = $rownotifications;    
+        }
+ 
+
         $result=[
-            "locations"=>location::all()
+            "notifications"=>$jsonnotifications
         ];
 
         $result_message=[
@@ -46,13 +66,22 @@ class LocationsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\location  $location
+     * @param  \App\Models\notifications  $notifications
      * @return \Illuminate\Http\Response
      */
-    public function show(location $location)
+    public function show(notifications $notification)
     {
         $result=[
-            "location"=>$location
+            "notifications"=> [
+                $notification->bildirim1,
+                $notification->bildirim2,
+                $notification->bildirim3,
+                $notification->bildirim4,
+                $notification->bildirim5,
+                $notification->bildirim6,
+                $notification->bildirim7,
+                $notification->bildirim8,
+            ] 
         ];
 
         $result_message=[
@@ -65,17 +94,17 @@ class LocationsController extends Controller
         return response()->json([
             "result"=>$result,
             "result_message"=> $result_message
-        ]);
+        ]); 
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\location  $location
+     * @param  \App\Models\notifications  $notifications
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, location $location)
+    public function update(Request $request, notifications $notifications)
     {
         //
     }
@@ -83,14 +112,14 @@ class LocationsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\location  $location
+     * @param  \App\Models\notifications  $notifications
      * @return \Illuminate\Http\Response
      */
-    public function destroy(location $location)
+    public function destroy(notifications $notification)
     {
-        $location->delete();
+        $notification->delete();
         $result=[
-            "location"=>$location->id
+            "notifications"=>$notification->id
         ];
         
         $result_message=[

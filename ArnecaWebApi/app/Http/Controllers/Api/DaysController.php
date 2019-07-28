@@ -47,6 +47,7 @@ class DaysController extends Controller
                'days'=>$jsondays
         ];
         $result_message=[
+            "method"=>"Get",
             "title"=>"Bilgi",
             "message"=> "Başarılı",
             "type"=>"success"
@@ -104,6 +105,7 @@ class DaysController extends Controller
         ];
 
         $result_message=[
+            "method"=>"Get",
             "title"=>"Bilgi",
             "message"=> "Başarılı",
             "type"=>"success"
@@ -133,11 +135,11 @@ class DaysController extends Controller
      * @param  \App\Models\days  $days
      * @return \Illuminate\Http\Response
      */
-    public function destroy(days $days)
+    public function destroy(days $day)
     {
-        $days->delete();
+        $day->delete();
         $result=[
-            "days"=>$days
+            "days"=>$day->id
         ];
         
         $result_message=[

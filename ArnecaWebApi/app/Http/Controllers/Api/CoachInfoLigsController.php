@@ -20,6 +20,8 @@ class CoachInfoLigsController extends Controller
 
         foreach($coach_info_ligs as $coach_info_lig){
 
+            $notification = $coach_info_lig->getNotifications;
+            
             $workout_plan = $coach_info_lig->getWorkout_plan;
             $jsonworkout_plans = array();
     
@@ -87,6 +89,8 @@ class CoachInfoLigsController extends Controller
     
             foreach($matches as $match)
             {
+                $set=$match->getSets;
+
                 $rowmatches = [
                     "id"=>$match->id,
                     "title"=>$match->title,
@@ -101,13 +105,29 @@ class CoachInfoLigsController extends Controller
                     "takimB"=>$match->takimB,
                     "imgA"=>$match->imgA,
                     "imgB"=>$match->imgB,
-                    "skor"=>$match->skor
+                    "skor"=>$match->skor, 
+                    "sets"=>[
+                        $set->set1,
+                        $set->set2,
+                        $set->set3,
+                        $set->set4
+                    ]
                 ]  ;            
                 $jsonmatches[] = $rowmatches;    
             }
 
             $rowcoachinfoligs  = [
                 "id"=>$coach_info_lig->id,
+                "notifications"=> [
+                    $notification->bildirim1,
+                    $notification->bildirim2,
+                    $notification->bildirim3,
+                    $notification->bildirim4,
+                    $notification->bildirim5,
+                    $notification->bildirim6,
+                    $notification->bildirim7,
+                    $notification->bildirim8,
+                ] ,
                 "lastMatch"=>$coach_info_lig->lastMatch,
                 "workout_plan"=>$jsonworkout_plans,
                 "matches"=>$jsonmatches
@@ -121,9 +141,10 @@ class CoachInfoLigsController extends Controller
         ];
     
         $result_message=[
-           "title"=>"Bilgi",
-           "message"=> "Başarılı",
-           "type"=>"success"
+            "method"=>"Get",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
         ];
 
         return response()->json([
@@ -156,6 +177,7 @@ class CoachInfoLigsController extends Controller
         $jsoncoachinfoligs = array();
         $workout_plan = $coach_info_lig->getWorkout_plan;
         $jsonworkout_plans = array();
+        $notification = $coach_info_lig->getNotifications;
 
         $months = $workout_plan->getMonths;
 
@@ -221,6 +243,7 @@ class CoachInfoLigsController extends Controller
     
         foreach($matches as $match)
         {
+            $set=$match->getSets;
             $rowmatches = [
                 "id"=>$match->id,
                 "title"=>$match->title,
@@ -235,7 +258,13 @@ class CoachInfoLigsController extends Controller
                 "takimB"=>$match->takimB,
                 "imgA"=>$match->imgA,
                 "imgB"=>$match->imgB,
-                "skor"=>$match->skor
+                "skor"=>$match->skor,
+                "sets"=>[
+                    $set->set1,
+                    $set->set2,
+                    $set->set3,
+                    $set->set4
+                ]
             ]  ;            
             $jsonmatches[] = $rowmatches;    
         }
@@ -243,6 +272,16 @@ class CoachInfoLigsController extends Controller
 
         $jsoncoachinfoligs[] = [
             "id"=>$coach_info_lig->id,
+            "notifications"=> [
+                $notification->bildirim1,
+                $notification->bildirim2,
+                $notification->bildirim3,
+                $notification->bildirim4,
+                $notification->bildirim5,
+                $notification->bildirim6,
+                $notification->bildirim7,
+                $notification->bildirim8,
+            ] ,
             "lastMatch"=>$coach_info_lig->lastMatch,
             "workout_plan"=>$jsonworkout_plans,
             "matches"=>$jsonmatches
@@ -253,9 +292,10 @@ class CoachInfoLigsController extends Controller
         ];
     
         $result_message=[
-           "title"=>"Bilgi",
-           "message"=> "Başarılı",
-           "type"=>"success"
+            "method"=>"Get",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
         ];
 
         return response()->json([
@@ -282,8 +322,23 @@ class CoachInfoLigsController extends Controller
      * @param  \App\Models\coach_info_ligs  $coach_info_ligs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(coach_info_ligs $coach_info_ligs)
+    public function destroy(coach_info_ligs $coach_info_lig)
     {
-        //
+        $coach_info_lig->delete();
+        $result=[
+            "coach_info_lig"=>$coach_info_lig->id
+        ];
+        
+        $result_message=[
+            "method"=>"Delete",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
+        ];
+        
+        return response()->json([
+            "result"=>$result,
+            "result_message"=> $result_message
+        ]);
     }
 }

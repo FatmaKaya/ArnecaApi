@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-
+Route::apiResource('sets','Api\SetsController');
 Route::apiResource('locations','Api\LocationsController');
 Route::apiResource('matches','Api\MatchesController');
 
@@ -23,6 +23,7 @@ Route::apiResource('weeks','Api\WeeksController');
 Route::apiResource('month','Api\MonthController');
 Route::apiResource('workout_plan','Api\WorkoutPlansController');
 
+Route::apiResource('notifications','Api\NotificationsController');
 Route::apiResource('coach_info_ligs','Api\CoachInfoLigsController');
 
 //Route::apiResource('coachinfoligs','Api\CoachInfoLigsController');

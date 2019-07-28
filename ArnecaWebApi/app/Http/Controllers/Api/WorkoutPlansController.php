@@ -85,6 +85,7 @@ class WorkoutPlansController extends Controller
         ];
     
         $result_message=[
+            "method"=>"Get",
             "title"=>"Bilgi",
             "message"=> "Başarılı",
             "type"=>"success"
@@ -178,6 +179,7 @@ class WorkoutPlansController extends Controller
         ];
     
         $result_message=[
+            "method"=>"Get",
             "title"=>"Bilgi",
             "message"=> "Başarılı",
             "type"=>"success"
@@ -213,7 +215,7 @@ class WorkoutPlansController extends Controller
     {
         $workout_plan->delete();
         $result=[
-            "location"=>$workout_plan
+            "workout_plan"=>$workout_plan->id
         ];
         
         $result_message=[

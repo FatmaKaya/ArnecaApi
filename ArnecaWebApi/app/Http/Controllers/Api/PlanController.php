@@ -33,6 +33,7 @@ class PlanController extends Controller
         ];
 
         $result_message=[
+            "method"=>"Get",
             "title"=>"Bilgi",
             "message"=> "Başarılı",
             "type"=>"success"
@@ -71,12 +72,12 @@ class PlanController extends Controller
             "name"=>$plan->name,
             "location"=>$plan->location,
         ]  ;   
-        
         $result=[
             "plan"=>$json
         ];
 
         $result_message=[
+            "method"=>"Get",
             "title"=>"Bilgi",
             "message"=> "Başarılı",
             "type"=>"success"
@@ -110,7 +111,7 @@ class PlanController extends Controller
     {
         $plan->delete();
         $result=[
-            "plan"=>$plan
+            "plan"=>$plan->id
         ];
         
         $result_message=[

@@ -62,6 +62,7 @@ class WeeksController extends Controller
         ];
 
         $result_message=[
+            "method"=>"Get",
             "title"=>"Bilgi",
             "message"=> "Başarılı",
             "type"=>"success"
@@ -130,6 +131,7 @@ class WeeksController extends Controller
         ];
 
         $result_message=[
+            "method"=>"Get",
             "title"=>"Bilgi",
             "message"=> "Başarılı",
             "type"=>"success"
@@ -159,11 +161,11 @@ class WeeksController extends Controller
      * @param  \App\Models\weeks  $weeks
      * @return \Illuminate\Http\Response
      */
-    public function destroy(weeks $weeks)
+    public function destroy(weeks $week)
     {
-        $weeks->delete();
+        $week->delete();
         $result=[
-            "location"=>$weeks
+            "week"=>$week->id
         ];
         
         $result_message=[

@@ -13,16 +13,21 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         Eloquent::unguard();
-        $this->call(PlanSeeder::class);
-        $this->call(DaysSeeder::class);
-        $this->call(WeeksSeeder::class);
-        $this->call(MonthsSeeder::class);
-        $this->call(WorkoutPlansSeeder::class);
-
-        $this->call(CoachInfoLigSeeder::class);
+        $this->call(
+            [
+                PlanSeeder::class,
+                DaysSeeder::class,
+                WeeksSeeder::class,
+                MonthsSeeder::class,
+                WorkoutPlansSeeder::class,
+                NotificationsSeeder::class,
+                CoachInfoLigSeeder::class,
+                SetsSeeder::class,
+                LocationSeeder::class,
+                MatchesSeeder::class
+            ]
+        );
         
-        $this->call(LocationSeeder::class);
-        $this->call(MatchesSeeder::class);
         
         
         

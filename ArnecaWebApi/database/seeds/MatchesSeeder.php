@@ -27,6 +27,7 @@ class MatchesSeeder extends Seeder
             'imgA'=>'/images/ziraat-bankasi.png',
             'imgB'=>'/images/istanbul-bbsk.png',
             'skor'=>'1-3',
+            'sets_id'=>1,
 
         ]);
         matches::create([
@@ -44,7 +45,7 @@ class MatchesSeeder extends Seeder
             'imgA'=>'/images/ziraat-bankasi.png',
             'imgB'=>'/images/istanbul-bbsk.png',
             'skor'=>'1-3',
-
+            'sets_id'=>2,
         ]);
     }
 }

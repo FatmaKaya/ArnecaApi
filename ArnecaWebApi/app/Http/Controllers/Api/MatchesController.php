@@ -20,6 +20,8 @@ class MatchesController extends Controller
         
         foreach($matches as $match)
         {
+            $set=$match->getSets;
+    
             $rowmatches = [
                 "id"=>$match->id,
                 "title"=>$match->title,
@@ -34,7 +36,13 @@ class MatchesController extends Controller
                 "takimB"=>$match->takimB,
                 "imgA"=>$match->imgA,
                 "imgB"=>$match->imgB,
-                "skor"=>$match->skor
+                "skor"=>$match->skor,
+                "sets"=>[
+                    $set->set1,
+                    $set->set2,
+                    $set->set3,
+                    $set->set4
+                ]  
             ]  ;            
             $jsonmatches[] = $rowmatches;    
         }
@@ -43,6 +51,7 @@ class MatchesController extends Controller
                'matches'=>$jsonmatches
         ];
         $result_message=[
+            "method"=>"Get",
             "title"=>"Bilgi",
             "message"=> "Başarılı",
             "type"=>"success"
@@ -74,6 +83,7 @@ class MatchesController extends Controller
     public function show(matches $match)
     {
         $json = array();
+        $set=$match->getSets;
         $json[]= [
             "id"=>$match->id,
             "title"=>$match->title,
@@ -88,7 +98,13 @@ class MatchesController extends Controller
             "takimB"=>$match->takimB,
             "imgA"=>$match->imgA,
             "imgB"=>$match->imgB,
-            "skor"=>$match->skor
+            "skor"=>$match->skor,
+            "sets"=>[
+                $set->set1,
+                $set->set2,
+                $set->set3,
+                $set->set4
+            ]  
         ]  ; 
            
         $result=[
@@ -96,13 +112,14 @@ class MatchesController extends Controller
         ];
 
         $result_message=[
-         "title"=>"Bilgi",
-         "message"=> "Başarılı",
-         "type"=>"success"
+            "method"=>"Get",
+            "title"=>"Bilgi",
+            "message"=> "Başarılı",
+            "type"=>"success"
         ];
         return response()->json([
-        "result"=>$result,
-        "result_message"=> $result_message
+            "result"=>$result,
+            "result_message"=> $result_message
         ]);  
     }
 
@@ -124,11 +141,11 @@ class MatchesController extends Controller
      * @param  \App\Models\matches  $matches
      * @return \Illuminate\Http\Response
      */
-    public function destroy(matches $matches)
+    public function destroy(matches $match)
     {
-        $matches->delete();
+        $match->delete();
         $result=[
-            "matches"=>$matches
+            "matches"=>$match->id
         ];
         
         $result_message=[
