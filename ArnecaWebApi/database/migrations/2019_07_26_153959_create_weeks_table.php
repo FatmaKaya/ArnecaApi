@@ -17,7 +17,7 @@ class CreateWeeksTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->bigInteger('month_id');  
-            $table->timestamps();
+            $table->timestamps=false;
         });
     }
 

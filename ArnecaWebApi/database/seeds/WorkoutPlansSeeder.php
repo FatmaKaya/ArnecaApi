@@ -15,8 +15,5 @@ class WorkoutPlansSeeder extends Seeder
         workout_plan::create([
             'name'=>'plan 1'
         ]);
-        workout_plan::create([
-            'name'=>'plan 2'
-        ]);
     }
 }

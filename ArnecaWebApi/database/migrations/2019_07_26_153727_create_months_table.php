@@ -17,7 +17,7 @@ class CreateMonthsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->bigInteger('workout_plan_id');  
-            $table->timestamps();
+            $table->timestamps=false;
         });
     }
 
